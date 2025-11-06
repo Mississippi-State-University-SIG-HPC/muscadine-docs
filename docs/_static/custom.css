@@ -845,14 +845,12 @@ html.dark {
   color: #fff;
 }
 
-.light .searchbox kbd,
-.light .yue kbd.kbd:not(.compound) {
+.light .searchbox kbd {
   background:linear-gradient(-225deg,#5D1725,#732B37);
   border:0;
   box-shadow:inset 0 -2px #732B37,inset 0 0 1px 1px #5D1725,0 1px 2px 1px #391218;
 }
-.dark .searchbox kbd,
-.dark .yue kbd.kbd:not(.compound) {
+.dark .searchbox kbd {
   background:linear-gradient(-225deg,#5D1725,#732B37);
   border:0;
   box-shadow:inset 0 -2px #732B37,inset 0 0 1px 1px #5D1725,0 1px 2px 1px #391218;

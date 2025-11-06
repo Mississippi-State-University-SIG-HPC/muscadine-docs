@@ -38,9 +38,8 @@ html_theme_options = {
 }
 html_static_path = ['_static']
 html_favicon = "_static/favicon.ico"
+html_logo = "_static/logos/HORIZONTAL_WEB_white.svg"
 html_theme_options = {
     "accent_color": "red",
-    "light_logo": "_static/pngs/logo_h_white.png",
-    "dark_logo": "_static/pngs/logo_h_white.png",
 }
 html_css_files = ['custom.css']
