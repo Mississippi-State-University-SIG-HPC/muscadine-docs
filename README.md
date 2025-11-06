@@ -4,7 +4,7 @@ This template provides a ready-to-use documentation setup using **MyST-flavored 
 
 ## Create a New Repository
 
-1. Navigate to **GitLab → New Project → Create from template**  
+1. Navigate to **GitLab → New Project → Create from template → Instance**
 2. Select **this template**  
 3. Name your repository and create it
 
