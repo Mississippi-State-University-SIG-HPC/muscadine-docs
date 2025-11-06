@@ -1,0 +1,12 @@
+pages:
+  script:
+  - python3 -m venv .
+  - . ./bin/activate
+  - PIP_CACHE_DIR=/tmp/tah568/pip_cache http_proxy=http://orion-dtn-1:15999 https_proxy=http://orion-dtn-1:15999 pip install --upgrade -r requirements.txt
+  - make html
+  - mv build/html public
+  artifacts:
+    paths:
+    - public
+  only:
+  - hpc2
