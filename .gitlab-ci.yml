@@ -1,4 +1,5 @@
 pages:
+  image: rockylinux:9
   script:
   - python3 -m venv .
   - . ./bin/activate
