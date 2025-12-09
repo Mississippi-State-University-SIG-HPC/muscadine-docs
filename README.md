@@ -35,5 +35,5 @@ When you push updates to your repository:
 * The site will be published via **GitLab Pages** at
 
   ```
-  https://<group>.gitlab.io/<project>
+  https://pages.hpc.msstate.edu/<group>/<project>/
   ```
