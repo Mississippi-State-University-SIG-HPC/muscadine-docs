@@ -1,9 +1,9 @@
 pages:
-  image: rockylinux:9
+  image: python:trixie
   script:
   - python3 -m venv .
   - . ./bin/activate
-  - PIP_CACHE_DIR=/tmp/tah568/pip_cache pip install --upgrade -r requirements.txt
+  - pip install --upgrade -r requirements.txt --no-cache-dir
   - make html
   - mv build/html public
   artifacts:
