@@ -1,50 +1,37 @@
-# Getting Started
+<!-- 
+muscadine documentation master file, 
+created by sphinx-quickstart on Thu Oct  2 14:13:13 2025. 
+-->
+
+# Documentation
+
+```
+$$\      $$\                     Welcome to:         $$\$$\
+$$$\    $$$ |                                        $$ \__|
+$$$$\  $$$$ $$\   $$\ $$$$$$$\ $$$$$$$\$$$$$$\  $$$$$$$ $$\$$$$$$$\  $$$$$$\
+$$\$$\$$ $$ $$ |  $$ $$  _____$$  _____\____$$\$$  __$$ $$ $$  __$$\$$  __$$\
+$$ \$$$  $$ $$ |  $$ \$$$$$$\ $$ /     $$$$$$$ $$ /  $$ $$ $$ |  $$ $$$$$$$$ |
+$$ |\$  /$$ $$ |  $$ |\____$$\$$ |    $$  __$$ $$ |  $$ $$ $$ |  $$ $$   ____|
+$$ | \_/ $$ \$$$$$$  $$$$$$$  \$$$$$$$\$$$$$$$ \$$$$$$$ $$ $$ |  $$ \$$$$$$$\
+\__|     \__|\______/\_______/ \_______\_______|\_______\__\__|  \__|\_______|
+```
+
+Please read before using muscadine
 
 ```{toctree}
-:numbered:
+:numbered: 4
 :maxdepth: 1
 :caption: Contents:
-:hidden:
 :glob:
 
-index
-typo/index
+introduction
+user-docs
+getting-help
+administrative-limitations
+monitoring
+building-software
+*
+ood/index
+sup/index
+adv/index
 ```
-
-This template provides a ready-to-use documentation setup using **MyST-flavored Markdown** and GitLab Pages.
-
-## Create a New Repository
-
-1. Navigate to **GitLab → New Project → Create from template**  
-2. Select **this template**  
-3. Name your repository and create it
-
-## Populate Your Documentation
-
-Place your documentation files under the `docs/` directory.
-
-```{note}
-For details on syntax features such as directives, roles, and math support, see the [MyST Syntax Guide](https://mystmd.org/guide/quickstart-myst-markdown)
-````
-
-## Build and Preview Locally
-
-You can build and preview your docs before pushing changes:
-
-```bash
-make html
-python3 -m http.server -d _build/html
-```
-
-Then open your browser to [http://localhost:8000](http://localhost:8000).
-
-## Automatic Build and Deployment
-
-When you push updates to your repository:
-
-* The GitLab CI/CD pipeline will automatically build your documentation
-* The site will be published via **GitLab Pages** at
-
-  ```
-  https://pages.hpc.msstate.edu/<group>/<project>/
-  ```

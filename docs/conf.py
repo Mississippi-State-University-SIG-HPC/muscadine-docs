@@ -6,9 +6,9 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'ARC Documentation'
-copyright = '2025, ARC'
-author = 'ARC'
+project = 'SIGHPC'
+copyright = '2025, sighpc'
+author = 'sighpc'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -16,10 +16,11 @@ author = 'ARC'
 extensions = [
     'myst_parser',
     'sphinx_copybutton',
+    'sphinx_new_tab_link'
 ]
 
 templates_path = ['_templates']
-exclude_patterns = []
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 myst_heading_anchors = 3
 myst_enable_extensions = [
@@ -33,13 +34,12 @@ myst_enable_extensions = [
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = 'shibuya'
-html_theme_options = {
-    "default_mode": "light",  # Force light mode on first load
-}
+
 html_static_path = ['_static']
-html_favicon = "_static/favicon.ico"
-html_logo = "_static/logos/HORIZONTAL_WEB_white.svg"
+html_favicon = "_static/favicon.png"
 html_theme_options = {
-    "accent_color": "red",
+    "accent_color": "pink",
+    "light_logo": "_static/pngs/logo_h_maroon.png",
+    "dark_logo": "_static/pngs/logo_h_white.png",
 }
 html_css_files = ['custom.css']

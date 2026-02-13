@@ -1,0 +1,6 @@
+linkify-it-py
+myst-parser
+shibuya
+Sphinx
+sphinx-copybutton
+sphinx-new-tab-link
