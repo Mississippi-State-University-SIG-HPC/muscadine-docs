@@ -1,39 +1,28 @@
-# Getting Started
+# Muscadine Documentation Source Repository
 
-This template provides a ready-to-use documentation setup using **MyST-flavored Markdown** and GitLab Pages.
-
-## Create a New Repository
-
-1. Navigate to **GitLab → New Project → Create from template → Instance**
-2. Select **this template**  
-3. Name your repository and create it
-
-## Populate Your Documentation
-
-Place your documentation files under the `docs/` directory.
-
-**NOTE:**
-
-For details on syntax features such as directives, roles, and math support, see the [MyST Syntax Guide](https://mystmd.org/guide/quickstart-myst-markdown)
-
-## Build and Preview Locally
-
-You can build and preview your docs before pushing changes:
-
-```bash
-make html
-python3 -m http.server -d _build/html
+```
+$$\      $$\                     Welcome to:         $$\$$\
+$$$\    $$$ |                                        $$ \__|
+$$$$\  $$$$ $$\   $$\ $$$$$$$\ $$$$$$$\$$$$$$\  $$$$$$$ $$\$$$$$$$\  $$$$$$\
+$$\$$\$$ $$ $$ |  $$ $$  _____$$  _____\____$$\$$  __$$ $$ $$  __$$\$$  __$$\
+$$ \$$$  $$ $$ |  $$ \$$$$$$\ $$ /     $$$$$$$ $$ /  $$ $$ $$ |  $$ $$$$$$$$ |
+$$ |\$  /$$ $$ |  $$ |\____$$\$$ |    $$  __$$ $$ |  $$ $$ $$ |  $$ $$   ____|
+$$ | \_/ $$ \$$$$$$  $$$$$$$  \$$$$$$$\$$$$$$$ \$$$$$$$ $$ $$ |  $$ \$$$$$$$\
+\__|     \__|\______/\_______/ \_______\_______|\_______\__\__|  \__|\_______|
 ```
 
-Then open your browser to [http://localhost:8000](http://localhost:8000).
+## Building
 
-## Automatic Build and Deployment
+This repo is designed to be built with Shibuya Sphinx theme. Steps are as follows
 
-When you push updates to your repository:
+```bash
+# Recommended: creat a venv
+python -m venv /var/tmp/sphinx
+. /var/tmp/sphinx/bin/activate
 
-* The GitLab CI/CD pipeline will automatically build your documentation
-* The site will be published via **GitLab Pages** at
+# install requirements
+pip install -r requirements.txt
 
-  ```
-  https://pages.hpc.msstate.edu/<group>/<project>/
-  ```
+# build docs
+make html
+```
