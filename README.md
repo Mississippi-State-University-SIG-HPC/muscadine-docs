@@ -26,3 +26,7 @@ pip install -r requirements.txt
 # build docs
 make html
 ```
+
+## CI/CD
+
+This repository uses github workflows for automatic building. Contributions to this site will automatically be built and pushed to the site at https://msstate.sighpc.com
