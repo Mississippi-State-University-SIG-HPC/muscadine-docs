@@ -19,7 +19,6 @@ $$ | \_/ $$ \$$$$$$  $$$$$$$  \$$$$$$$\$$$$$$$ \$$$$$$$ $$ $$ |  $$ \$$$$$$$\
 Please read before using muscadine
 
 ```{toctree}
-:numbered: 4
 :maxdepth: 1
 :caption: Contents:
 :glob:
