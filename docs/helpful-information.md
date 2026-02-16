@@ -1,8 +1,8 @@
 # Helpful Information
 
-Even if your new to being on a cluster or even new to linux as a whole, we still got you covered. We can't teach 
-you every linux command because there are an infinite amount of commands out there right now; but we can show 
-you the most common linux commands and which ones you'll be using the most while on the cluster.       
+Even if you're new to being on a cluster or even new to Linux as a whole, we still have you covered. We can't teach 
+you every Linux command, as there are an infinite number of commands available, but we can show 
+you the most common Linux commands and which ones you'll use the most while on the cluster.    
 
 ---
 
@@ -47,7 +47,6 @@ you the most common linux commands and which ones you'll be using the most while
 
 # More Information
 
-We could have put a whole lot more commands on this page that you will eventually use, but what is the point of that? These commands are the foundation for system navigation and file management. Learn these commands first, then learn the more advanced commands when it actually comes time to use them.
+We could have included many more commands on this page that you will eventually use, but what is the point of that? These commands are the foundation for system navigation and file management. Learn these commands first, then learn the more advanced commands when you actually need to use them.
 
-If you do want to dive deeper into more advanced linux commands, here are some 
-        Linux Command Browswer: https://tldr.inbrowser.app/
+If you do want to dive deeper into more advanced Linux commands, here is a massive and simplified Linux Command Browser: https://tldr.inbrowser.app/
