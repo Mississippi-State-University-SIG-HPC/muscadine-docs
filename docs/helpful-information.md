@@ -11,9 +11,9 @@ you the most common Linux commands and which ones you'll use the most while on t
 | Command | Description |
 | :-----: | :---------- | 
 | pwd | Prints current directory |
-| ls -lh | List files and file size |
-| cd [folder] | Changes current directory |
-| cd .. | Changes to parent directory |
+| ls | List files or file size with `[-lh]` option |
+| cd `<path/to/directory>`| Changes current directory |
+| cd `..` | Changes to parent directory |
 
 
 
@@ -21,20 +21,20 @@ you the most common Linux commands and which ones you'll use the most while on t
 
 | Command | Description |
 | :-----: | :---------- |
-| mkdir [name] | Makes a new directory |
-| cp [file] [name] | Copies file with new name |
-| mv [old path] [new path] | Rename or move files to a new directory |
-| rm [file] | Removes a file or a folder with [-r] option |
+| mkdir `<name>` | Makes a new directory |
+| cp `<file>` `<name>` | Copies file with new name |
+| mv `<old path>` `<new path>` | Rename or move files to a new directory |
+| rm `<file>` | Removes a file or a folder with `[-r]` option |
 
 ## Reading and Writing to Files
 
 | Command | Description |
 | :-----: | :---------- |
-| cat [file] | Prints output of file in terminal |
-| head [file] | Shows only top 10 lines of a file |
-| tail [file] | Shows only the last 10 lines of a file |
-| nano [file] | Simple text editor |
-| vim [file] | More advanced text editor |
+| cat `<file>` | Prints output of file in terminal |
+| head `<file>` | Shows only top 10 lines of a file |
+| tail `<file>` | Shows only the last 10 lines of a file |
+| nano `<file>` | Simple text editor |
+| vim `<file>` | Highly configurable text editor |
 
 
 ## Helpful Tips
