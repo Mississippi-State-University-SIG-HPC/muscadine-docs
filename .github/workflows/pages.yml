@@ -33,6 +33,7 @@ jobs:
       - name: Build HTML
         run: |
           source venv/bin/activate
+          make clean
           make html
 
       - name: Prepare Pages artifact
