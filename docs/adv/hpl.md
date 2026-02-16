@@ -137,7 +137,7 @@ tar xf hpl-2.3.tar.gz
 cd hpl-2.3
 ```
 
-### Configure the Makefile
+### Configuration
 
 Since version 2.3 (the latest as of writing), HPL can either use static Makefiles or GNU Autotools. Since autotools is alot simple and somewhat more consistent, we'll be using that.
 
