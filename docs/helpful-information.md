@@ -3,10 +3,8 @@
 Even if your new to being on a cluster or even new to linux as a whole, we still got you covered. We can't teach 
 you every linux command because there are an infinite amount of commands out there right now; but we can show 
 you the most common linux commands and which ones you'll be using the most while on the cluster.       
-<br />
 
 ---
-<br />      
 
 ## File and Folder Navigation
 
@@ -18,7 +16,6 @@ you the most common linux commands and which ones you'll be using the most while
 | cd .. | Changes to parent directory |
 
 
-<br />
 
 ## Handling Files (Copy, Move, Delete)
 
@@ -28,10 +25,6 @@ you the most common linux commands and which ones you'll be using the most while
 | cp [file] [name] | Copies file with new name |
 | mv [old path] [new path] | Rename or move files to a new directory |
 | rm [file] | Removes a file or a folder with [-r] option |
-
-
-<br />        
-
 
 ## Reading and Writing to Files
 
@@ -44,28 +37,17 @@ you the most common linux commands and which ones you'll be using the most while
 | vim [file] | More advanced text editor |
 
 
-<br> <br>
 ## Helpful Tips
+
 * {kbd}`Tab`: While typing a file or foldername, click tab and linux finish the name for you.
 * {kbd}`↑` / {kbd}`↓` : Cycles through your previous commands with the up-and-down arrows.
 * {kbd}`Ctrl` + {kbd}`C` : Will kill the current command (Useful if you have a frozen terminal).
 
-<br><br />
+---
+
 # More Information
-We could have put a whole lot more commands on this page that you will eventually use, but
-what is the point of that?. These commands are the foundation for system navigation and 
-file management. Learn these commands first, then learn the more advanced commands when 
-it actually comes time to use them.
+
+We could have put a whole lot more commands on this page that you will eventually use, but what is the point of that? These commands are the foundation for system navigation and file management. Learn these commands first, then learn the more advanced commands when it actually comes time to use them.
 
 If you do want to dive deeper into more advanced linux commands, here are some 
-website recommendation: <br><br />
-        OverTheWireBandit: https://overthewire.org/wargames/bandit/ <br />
         Linux Command Browswer: https://tldr.inbrowser.app/
-        
-
-
-                                          
-                                            |
-
-
-     
