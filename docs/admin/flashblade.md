@@ -8,8 +8,8 @@
 - the username:password is pureuser:pureuser
 
 ## Configuring Networking
-Due to the pure's intended worload, it has some niche networking requirements, namely, that both of it's fabric managers have a symettric LACP bond between it's 40GbE QSFP+ ports.
-Without the availibility of an enterprise 40GbE capable switch, we're left to improvise.
+Due to the pure's intended workload, it has some niche networking requirements, namely, that both of it's fabric managers have a symmetric LACP bond between it's 40GbE QSFP+ ports.
+Without the availability of an enterprise 40GbE capable switch, we're left to improvise.
 
 Aganst PureStorage's advice, the following configuration works:
 - 2x 40GbE NICs in node-1 connected to CH1.FM1.ETH1 and CH1.FM2.ETH1
@@ -68,21 +68,22 @@ Test connectivity by pinging 192.168.34.4 for the mgt or 192.168.34.9 for the se
 ## NFS Shares
 We'll need to create the following shares by logging into the webgui:
 
-| share | provisioned size | user quota | snapshot | nfs rules |
-|-------|------------------|------------|----------|-----------|
-| apps | 20 T | | yes | 192.168.34.31(rw,no_root_squash) 192.168.34.0/24(rw,root_squash) |
-| home | 20 T | 2 T | yes | 192.168.34.31(rw,no_root_squash) 192.168.34.0/24(rw,root_squash) |
-| work | 20 T | 2 T | yes | 192.168.34.31(rw,no_root_squash) 192.168.34.0/24(rw,root_squash) |
-| ww | 2 T | | yes | 192.168.34.31(rw,no_root_squash) 192.168.34.13(rw,no_root_squash) |
+| share   | provisioned size | user quota | snapshot | nfs rules                                                         |
+| ------- | ---------------- | ---------- | -------- | ----------------------------------------------------------------- |
+| home    | 20 T             | 2 T        | yes      | 192.168.34.31(rw,no_root_squash) 192.168.34.0/24(rw,root_squash)  |
+| work    | 20 T             | 2 T        | yes      | 192.168.34.31(rw,no_root_squash) 192.168.34.0/24(rw,root_squash)  |
+| apps    | 20 T             |            | yes      | 192.168.34.31(rw,no_root_squash) 192.168.34.0/24(rw,root_squash)  |
+| patches | 20 T             |            | yes      | 192.168.34.31(rw,no_root_squash) 192.168.34.0/24(rw,root_squash)  |
+| ww      | 2 T              |            | yes      | 192.168.34.31(rw,no_root_squash) 192.168.34.13(rw,no_root_squash) |
 
-all shares will have the following options:
+All shares will have the following options:
 - NFSv3 - yes
 - Hard Limit - no
 - No default group quota
 
 ## Policies
 The pure makes it trivial to protect your data in the event of accidental deletion.
-In the webgui, follow these steps:
+In the web interface, follow these steps:
 - in the left pane, click protection
 - on the top pane, click policies
 - on the top right, click the plus
@@ -94,11 +95,11 @@ In the webgui, follow these steps:
 - click add
 - click the new policy
 - under members, click the 3 dots
-- click add filesystems
+- click add file-systems
 - check `apps`, `work`, `home`, and `ww`
 - click add
 
 
 ## A Note on Storage Schema
 PureStorage prides themselves on their compression and deduplication algorithms.
-It is **PARAMOUNT** that users do not compress data on a per-file basis. compressed data is almost impossible to deduplicate or compress again. rely on the appliance to handle these data-saving techniques.
+It is **PARAMOUNT** that users do not compress data on a per-file basis. compressed data is almost impossible to deduplicate or compress again. rely on the appliance to handle these space-saving techniques.
