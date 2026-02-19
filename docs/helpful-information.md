@@ -1,4 +1,4 @@
-# Helpful Information
+# Linux Basics
 
 Even if you're new to being on a cluster or even new to Linux as a whole, we still have you covered. We can't teach 
 you every Linux command, as there are an infinite number of commands available, but we can show 
@@ -6,7 +6,9 @@ you the most common Linux commands and which ones you'll use the most while on t
 
 ---
 
-## File and Folder Navigation
+## Common Commands
+
+### File and Folder Navigation
 
 | Command | Description |
 | :-----: | :---------- | 
@@ -16,7 +18,7 @@ you the most common Linux commands and which ones you'll use the most while on t
 | cd `..` | Changes to parent directory |
 
 
-## Handling Files (Copy, Move, Delete)
+### Handling Files (Copy, Move, Delete)
 
 | Command | Description |
 | :-----: | :---------- |
@@ -29,7 +31,7 @@ you the most common Linux commands and which ones you'll use the most while on t
 Commands that write to a file will almost always overwrite an existing file **without warning**. Always be careful and deliberate with these commands, there is no {kbd}`undo` button.
 ```
 
-## Reading and Writing to Files
+### Reading and Writing to Files
 
 | Command | Description |
 | :-----: | :---------- |
@@ -43,7 +45,9 @@ Commands that write to a file will almost always overwrite an existing file **wi
 If you've never used vim before, use {kbd}`I` to enter insert mode, {kbd}`Esc` to leave it, {kbd}`:wq` to save and quit, and {kbd}`:q!` to quit without saving.
 ```
 
-## Helpful Tips
+---
+
+## Helpful Keybinds
 
 - {kbd}`Tab`: While typing a file or foldername, click tab and linux finish the name for you.
 - {kbd}`↑` / {kbd}`↓` : Cycles through your previous commands with the up-and-down arrows.
@@ -52,7 +56,7 @@ If you've never used vim before, use {kbd}`I` to enter insert mode, {kbd}`Esc` t
 
 ---
 
-# More Information
+## More Information
 
 We could have included many more commands on this page that you will eventually use, but what is the point of that? These commands are the foundation for system navigation and file management. Learn these commands first, then learn the more advanced commands when you actually need to use them.
 
