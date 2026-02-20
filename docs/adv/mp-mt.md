@@ -104,7 +104,7 @@ mpirun -np $SLURM_NTASKS ./my_hybrid_program
 
 ---
 
-### Key Points
+## Key Points
 - Use **multi-threading** for shared-memory, single-process parallelism (OpenMP, Python threads).
 - Use **multiprocessing** for CPU-bound tasks, true parallelism, or multi-node scaling (MPI, Python `multiprocessing`).
 - Hybrid models combine both for maximum performance on multi-core nodes.
