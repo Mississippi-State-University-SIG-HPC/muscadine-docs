@@ -146,7 +146,7 @@ Since version 2.3 (the latest as of writing), HPL can either use static Makefile
   CC=mpicc \
   LDFLAGS="-L$OPENBLAS_ROOT/lib -L$OPENMPI_ROOT/lib" \
   CPPFLAGS="-I$OPENMPI_ROOT/include" \
-  CFLAGS="-O2 -march=znver4 -mtune=znver4 -DHPL_PROGRESS_REPORT"
+  CFLAGS="-O2 -march=znver4 -mtune=znver4"
 ```
 
 ### Build
