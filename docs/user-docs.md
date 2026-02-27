@@ -165,25 +165,25 @@ srun <application>
 Here is an example of a SBATCH Script used for a Hello World spanning across 2 nodes, 48 threads each, using the openmpi/5.0.5 module, and the binary I made.
 
 ```SBATCH
-!/bin/bash
+#!/bin/bash
 
- Slurm Specific
+# Slurm Specific
 
-SBATCH --job-name=helloWorld           #job name
-SBATCH --nodes=2                       #number of nodes
-SBATCH --ntasks-per-node=48            #number of tasks per node
-SBATCH --cpus-per-task=1               #number of cpus per task
-SBATCH --mem=8G                        #max memory allocated
-SBATCH --time=0-1:00:00                #max runtime
-SBATCH --output=helloWorld-%j.out      #output name
+#SBATCH --job-name=helloWorld           #job name
+#SBATCH --nodes=2                       #number of nodes
+#SBATCH --ntasks-per-node=48            #number of tasks per node
+#SBATCH --cpus-per-task=1               #number of cpus per task
+#SBATCH --mem=8G                        #max memory allocated
+#SBATCH --time=0-1:00:00                #max runtime
+#SBATCH --output=helloWorld-%j.out      #output name
 
 
- Muscadine Specific
+# Muscadine Specific
 
 ml load openmpi/5.0.5
 
 
- Your Application
+# Your Application
 
 srun ./hello_mpi
 ```
