@@ -10,7 +10,7 @@ Much care and consideration goes into curating a given cluster's site-wide apps 
 ### Initial setup
 Spack is a user-land python suite that can be installed almost anywhere. Installing is easy.
 ```bash
-https://spack.readthedocs.io/en/latest/getting_started.html /path/to/install
+git clone --depth=2 https://github.com/spack/spack.git /path/to/install
 ```
 
 ### Environment Setup
