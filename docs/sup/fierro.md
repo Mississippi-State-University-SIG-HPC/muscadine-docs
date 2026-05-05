@@ -7,6 +7,7 @@ Fierro is a software made by Los Alamos National Laboratory and is a multiphysic
 ---
 
 ## Fierro Input File Reference
+
 To run a simulation, Fierro requires a YAML input file that defines the physics, materials, and geometry. The Fierro input file is organized into several key sections, each controlling a specific aspect of the simulation.
 
 <details>
@@ -34,7 +35,6 @@ To run a simulation, Fierro requires a YAML input file that defines the physics,
   ---
   
 </details>
-  
   
 <details>
   
@@ -78,7 +78,6 @@ To run a simulation, Fierro requires a YAML input file that defines the physics,
   
 </details>
   
-  
 <details>
   <summary><code>output_options</code> : Output frequency, format, and fields</summary>
   
@@ -105,7 +104,6 @@ To run a simulation, Fierro requires a YAML input file that defines the physics,
   ---
   
 </details>
-  
   
 <details>
   <summary><code>solver_options</code> : Physics solver configuration</summary>
@@ -135,7 +133,6 @@ To run a simulation, Fierro requires a YAML input file that defines the physics,
   ---
   
 </details>
-  
   
 <details>
     
@@ -178,7 +175,6 @@ To run a simulation, Fierro requires a YAML input file that defines the physics,
   ---
   
 </details>
-  
   
 <details>
   
@@ -251,7 +247,6 @@ To run a simulation, Fierro requires a YAML input file that defines the physics,
   
 </details>
   
-  
 <details>
   
   <summary><code>multimaterial_options</code> : Mixed-material element handling</summary>
@@ -287,7 +282,6 @@ To run a simulation, Fierro requires a YAML input file that defines the physics,
   ---
   
 </details>
-  
   
 <details>
   
@@ -347,12 +341,9 @@ To run a simulation, Fierro requires a YAML input file that defines the physics,
   | `internal_energy` |
   | `level_set` |
   
-  
 </details>
 
-
 ---
-
 
 ## Example Input File
 
@@ -471,6 +462,111 @@ regions:
       specific_internal_energy: {type: uniform, value: 1.0e-6}
       velocity: {type: cartesian, u: 0.0, v: 0.0, w: 0.0}
 ```
+
 ---
+
+## Running Fierro
+
+### Fierro Environment Setup
+
+Fierro and its dependencies (ROCM, HIP, Kokkos) are all managed by the Fierro module. Load the module before running or submitting any job.
+
+```bash
+ml fierro
+```
+
+After loading the module, this makes the `Fierro` binary available in your `PATH` and setups the required HIP/ROCM environment. You can verify it's loaded correctly with:
+
+```bash
+which Fierro
+```
+
+---
+
+### Submitting a Job
+
+The recommended way to run Fierro is using a SBATCH script. The following SBATCH script is a simple template for Fierro which should be able to run any kind of Fierro simulation:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name="fierro-demo`
+#SBATCH --nodes=1
+#SBATCH --ntask-per-node=1
+#SBATCH --cpus-per-task=8
+#SBATCH --gres=gpu
+#SBATCH --chdir=<path/to/dir>
+#SBATCH --time=0-0:30:00
+#SBATCH --output=-%j.out
+
+module load fierro
+
+srun Fierro input.yaml
+```
+
+Replace `input.yaml` with either the example input file from ealier or you're own YAML Fierro input file. 
+Then, you're ready to run the script with `sbatch <scriptName>`.
+
+```{tip}
+**Output Directory:** Fierro creates a subdirectory in the working directory names after the `output_file_format` value in your input file. For example, `output_file_format: vtk` produces a `vtk/` folder. Setting `--chdir` ensures output goes in a certain directory rather than where you called the SBATCH file.
+```
+
+---
+
+## Viewing the Output with Paraview
+
+### Paraview Environment Setup
+
+To view the output of your Fierro script, first you need to load the Paraview module.
+
+```bash
+ml contrib paraview
+```
+
+To run paraview just simply do `paraview` in the terminal. It will pop up a gui window of paraview that you can use to view the output file on Muscadine
+
+---
+
+### Opening Output Files
+
+Fierro outputs the file in a directory named after whatever your `output_file_format` was (e.g. `vtk/`).
+
+1. In ParaView: **File -> Open**
+2. Navigate to the directory you set for `--chdir` in your SBATCH script and open the new output directory.
+3. Look for a `.pvd` file
+4. Select it and click **OK**
+5. Click the green **Apply** button in the Properties panel
+
+---
+
+### Basic Workflow
+
+**Scrub through timesteps:**
+Use the toolbar at the top - playbutton, step/forward/back, or type a timestep directly in the time field.
+
+**Color by a field:** 
+In the toolbar, change the coloring dropdown from `Solid Color` to a field from your `output_options` - e.g. `den`, `pres`, `vel`. Hit **Apply** after changing.
+
+**Rescale the colormap to the current timesetp:**
+Click the **Rescale to Data Range** button (the double-arrow icon next to the colormap bar) - useful when fields change dramatically over time.
+
+**Warp by velocity (optional):**
+**Filters -> Search -> "Warp By Vector"** -> set vector to `vel` -> Apply. Useful for visualizing deformation.
+
+```{tip}
+For large runs, load only a subset of timesteps: **File → Open** → check **"Load only selected timesteps"** in the dialog.
+```
+
+---
+
+
+
+
+
+
+
+
+
+
+
 
 
