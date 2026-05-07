@@ -6,6 +6,22 @@ Fierro is a software made by Los Alamos National Laboratory and is a multiphysic
 
 ---
 
+## Prerequisites
+ 
+Before running Fierro or viewing output in ParaView, you need to be connected to the **HPC² VPN**. Without it you cannot reach Muscadine, and ParaView's GUI will not be able to forward to your display.
+ 
+1. Connect to the HPC² VPN. ( For more information, look back at the [Getting Started](https://msstate.sighpc.com/user-docs.html#method-two-hpc-vpn) section )
+2. SSH into Muscadine with X11 forwarding enabled:
+```bash
+ssh -Y <NetID>@muscadine-node-1.hpc.msstate.edu
+```
+ 
+The `-Y` flag enables trusted X11 forwarding, which is required for ParaView to open a GUI window on your local machine. Without it, `paraview` will launch but immediately fail with a display error.
+ 
+> **Note:** X11 forwarding requires an X server running on your local machine. On Windows, install [VcXsrv](https://sourceforge.net/projects/vcxsrv/) or [Xming](https://sourceforge.net/projects/xming/) and make sure it's running before you SSH in. On macOS, install [XQuartz](https://www.xquartz.org/). Linux has X11 natively.
+
+---
+
 ## Fierro Input File Reference
 
 To run a simulation, Fierro requires a YAML input file that defines the physics, materials, and geometry. The Fierro input file is organized into several key sections, each controlling a specific aspect of the simulation.
@@ -558,7 +574,10 @@ For large runs, load only a subset of timesteps: **File → Open** → check **"
 
 ---
 
+## More Info
 
+Fierro GitHub: https://github.com/lanl/Fierro
+ParaView Documentation: https://docs.paraview.org/en/latest/UsersGuide/index.html
 
 
 
