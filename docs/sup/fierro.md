@@ -7,18 +7,14 @@ Fierro is a software made by Los Alamos National Laboratory and is a multiphysic
 ---
 
 ## Prerequisites
- 
-Before running Fierro or viewing output in ParaView, you need to be connected to the **HPC² VPN**. Without it you cannot reach Muscadine, and ParaView's GUI will not be able to forward to your display.
- 
-1. Connect to the HPC² VPN. ( For more information, look back at the [Getting Started](https://msstate.sighpc.com/user-docs.html#method-two-hpc-vpn) section )
-2. SSH into Muscadine with X11 forwarding enabled:
-```bash
-ssh -Y <NetID>@muscadine-node-1.hpc.msstate.edu
+
+The first thing you need is Paraview installed on your local device. You will not be using it to run the scripts, but you will be using it to connect to Muscadine and view your simulations. The version on Muscadine is `Paraview-6.0.1`, so you will need this exact version to be able to connect to it.
+
+Before running Fierro or viewing output in ParaView, you need to be connected to the **HPC² VPN**. Without it you cannot reach Muscadine in addition to not being able to view your files on Muscadine. For more information on the VPN you can view the {ref}`VPN setup steps <method-two-hpc-vpn>` for instructions.
+
+```{tip}
+If running Paraview on your local device is not a viable option, you can also just run the Paraview GUI directly on Muscadine by just typing `paraview` after running `ml contrib paraview`. However, it may be choppy or delayed while running these simulations so running Paraview locally is still the recommended method.
 ```
- 
-The `-Y` flag enables trusted X11 forwarding, which is required for ParaView to open a GUI window on your local machine. Without it, `paraview` will launch but immediately fail with a display error.
- 
-> **Note:** X11 forwarding requires an X server running on your local machine. On Windows, install [VcXsrv](https://sourceforge.net/projects/vcxsrv/) or [Xming](https://sourceforge.net/projects/xming/) and make sure it's running before you SSH in. On macOS, install [XQuartz](https://www.xquartz.org/). Linux has X11 natively.
 
 ---
 
@@ -491,7 +487,7 @@ Fierro and its dependencies (ROCM, HIP, Kokkos) are all managed by the Fierro mo
 ml fierro
 ```
 
-After loading the module, this makes the `Fierro` binary available in your `PATH` and setups the required HIP/ROCM environment. You can verify it's loaded correctly with:
+After loading the module, this makes the `Fierro` binary available in your `PATH` and sets up the required HIP/ROCM environment. You can verify it's loaded correctly with:
 
 ```bash
 which Fierro
@@ -505,9 +501,9 @@ The recommended way to run Fierro is using a SBATCH script. The following SBATCH
 
 ```bash
 #!/bin/bash
-#SBATCH --job-name="fierro-demo`
+#SBATCH --job-name="fierro-demo"
 #SBATCH --nodes=1
-#SBATCH --ntask-per-node=1
+#SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=8
 #SBATCH --gres=gpu
 #SBATCH --chdir=<path/to/dir>
@@ -519,11 +515,11 @@ module load fierro
 srun Fierro input.yaml
 ```
 
-Replace `input.yaml` with either the example input file from ealier or you're own YAML Fierro input file. 
+Replace `input.yaml` with either the example input file from earlier or your own YAML Fierro input file. 
 Then, you're ready to run the script with `sbatch <scriptName>`.
 
 ```{tip}
-**Output Directory:** Fierro creates a subdirectory in the working directory names after the `output_file_format` value in your input file. For example, `output_file_format: vtk` produces a `vtk/` folder. Setting `--chdir` ensures output goes in a certain directory rather than where you called the SBATCH file.
+**Output Directory:** Fierro creates a subdirectory in the working directory named after the `output_file_format` value in your input file. For example, `output_file_format: vtk` produces a `vtk/` folder. Setting `--chdir` ensures output goes in a certain directory rather than where you called the SBATCH file.
 ```
 
 ---
@@ -532,13 +528,24 @@ Then, you're ready to run the script with `sbatch <scriptName>`.
 
 ### Paraview Environment Setup
 
-To view the output of your Fierro script, first you need to load the Paraview module.
+To view the output of your Fierro script, you need to set up a Paraview server to connect to your local device. 
 
-```bash
-ml contrib paraview
-```
+1. Load the Paraview module: `ml contrib paraview`.
 
-To run paraview just simply do `paraview` in the terminal. It will pop up a gui window of paraview that you can use to view the output file on Muscadine
+2. Load a Paraview server in the terminal: `pvserver` (Keep this terminal open) or alternatively run `srun pvserver`.
+
+> Check the line that says `Accepting connection(s): <hostname>:11111` — note the hostname, you'll need it in the next step.
+
+3. In your local Paraview GUI:
+    * **File -> Connect**
+    * **Add Server**
+
+4. Set the following configurations:
+    * Name: `Muscadine`
+    * Host: *(the hostname from the pvserver output, e.g. `muscadine-node-2.hpc.msstate.edu`)*
+    * Port: `11111`
+
+5. Then finally, click **Configure -> Connect**
 
 ---
 
@@ -562,7 +569,7 @@ Use the toolbar at the top - playbutton, step/forward/back, or type a timestep d
 **Color by a field:** 
 In the toolbar, change the coloring dropdown from `Solid Color` to a field from your `output_options` - e.g. `den`, `pres`, `vel`. Hit **Apply** after changing.
 
-**Rescale the colormap to the current timesetp:**
+**Rescale the colormap to the current timestep:**
 Click the **Rescale to Data Range** button (the double-arrow icon next to the colormap bar) - useful when fields change dramatically over time.
 
 **Warp by velocity (optional):**
@@ -576,8 +583,10 @@ For large runs, load only a subset of timesteps: **File → Open** → check **"
 
 ## More Info
 
-Fierro GitHub: https://github.com/lanl/Fierro
-ParaView Documentation: https://docs.paraview.org/en/latest/UsersGuide/index.html
+- Fierro GitHub: https://github.com/lanl/Fierro
+- MATAR Github (Fierro sub-dependency): https://github.com/lanl/MATAR
+- ParaView Documentation: https://docs.paraview.org/en/latest/UsersGuide/index.html
+
 
 
 

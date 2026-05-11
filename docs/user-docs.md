@@ -16,6 +16,7 @@ ssh <NetID>@muscadine-node-1.hpc.msstate.edu
 
 Repeat the authentication process from logging into Titan and you'll be set.
 
+(method-two-hpc-vpn)=
 ### Method Two: HPC VPN
 Method Two involves logging into the HPC{sup}`2` VPN. Go to [https://servicedesk.its.msstate.edu](https://servicedesk.its.msstate.edu/TDClient/45/Portal/KB/?CategoryID=80) and download the Cisco AnyConnect VPN by following ITS's guide. Once that is completed, launch the VPN and connect to `vpn.hpc.msstate.edu`. It will then ask for your Group (HPC2), Username (your NetID), Password (your HPC Password), and Duo 2FA Passcode (get from duo app or enter 'push' to recieve a push challenge notification). Once you are connected, you can ssh directly into muscadine's head node `muscadine-node-1`. Use the following template if needed:
 
