@@ -534,7 +534,7 @@ To view the output of your Fierro script, you need to set up a Paraview server t
 
 2. Load a Paraview server in the terminal: `pvserver` (Keep this terminal open) or alternatively run `srun pvserver`.
 
-> Check the line that says `Accepting connection(s): <hostname>:11111` — note the hostname, you'll need it in the next step.
+> Check the line that says `Accepting connection(s): <hostname>:11111` - note the hostname, you'll need it in the next step.
 
 3. In your local Paraview GUI:
     * **File -> Connect**
