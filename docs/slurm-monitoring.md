@@ -123,13 +123,30 @@ The dashboard opens pre-configured to your specific job ID and time range (from 
 
 | Panel | What it shows |
 |---|---|
-| **Job CPU Usage** | Per-core utilization across the job's allocated cores over time |
-| **Job Memory Usage** | RSS/virtual memory consumption |
-| **Allocated Memory** | The amount of memory specified in your SBATCH script |
-| **GPU Usage** | Percentage of GFX utilization for the job, if a GPU was allocated |
-| **GPU VRAM Usage** | Memory consumption per GPU over time |
-| **GPU Memory Bandwidth Usage** | Memory bus utilization (bandwidth pressure) |
-| **GPU Clockspeed** | The GPU's current clockspeed over the job's lifetime |
+| **Job CPU Utilization (%)** | User, system, and total CPU usage as a percentage of allocated cores over time |
+| **Job CPU Memory Utilization (%)** | RSS, cached, used, and total allocated memory over time, plus OOM failure events |
+| **Allocated CPU Memory** | The total memory allocation as specified in your `sbatch` script (`--mem`) |
+| **Allocated CPU Cores** | The number of CPU cores allocated to the job (`--ntasks` / `--cpus-per-task`) |
+| **GPU Utilization (%)** | GFX engine activity percentage across all GPUs assigned to the job over time |
+| **GPU Memory Utilization (%)** | VRAM consumption as a percentage of total VRAM across all assigned GPUs over time |
+| **GPU Memory Utilization (MB)** | Raw VRAM consumption in MB across all assigned GPUs over time |
+| **Memory Controller Utilization (%)** | UMC (Unified Memory Controller) activity (how hard the GPU memory bus is being pushed) |
+| **GPU Clockspeed (MHz)** | Active GPU core clock frequency over the job's lifetime |
+| **GPU Temperature (°C)** | Edge and junction temperatures for the assigned GPUs over the job's lifetime |
+| **GPU Power Usage (W)** | Average package power draw in watts for the assigned GPUs over time |
+
+**Additional Panels:**
+
+| Panel | What it shows |
+|---|---|
+| **Node CPU Percentage Utilization** | System, user, IO-wait, and total CPU usage at the node level (independent of job cgroup accounting) |
+| **Node Total Memory Utilization** | Full node memory breakdown (total, used, available, free, buffered, and cached) |
+| **Local Disk R/W** | Read and write throughput (bytes/sec) per block device on the selected node |
+| **Local Disk IOPS** | Read and write I/O operations per second per block device on the selected node |
+| **NFS Stats** | NFS read/write request rate and metadata operation rate (reads and writes) over NFSv3 |
+| **Infiniband Throughput** | Bytes per second received and transmitted over the node's Infiniband port |
+| **Infiniband Packet Rate** | Multicast and unicast packet rates in both directions over Infiniband |
+| **Infiniband Errors** | Link errors, downed links, congestion indicators, and discarded packets on the Infiniband fabric |
 
 **The time range is automatically scoped to your job**, and you don't need to manually adjust it. The dashboard uses the job's start and end timestamps pulled from Slurm accounting.
 
@@ -138,13 +155,13 @@ The dashboard opens pre-configured to your specific job ID and time range (from 
 ## 3. Tips for Interpreting Your Job's Metrics
 
 **CPU efficiency below 50%?**
-Your job may be waiting on memory, I/O, or GPU transfers rather than doing compute work. Check if you're over-allocating cores relative to what your code can parallelize.
+Your job may be waiting on memory, I/O, or GPU transfers rather than doing compute work. Note that 50% is considered fully utilized for single-threaded code (since Slurm counts hyperthreads as cores). If your job isn't using multi-threading, efficiency near 50% is expected and healthy. Below that, check if you're over-allocating cores relative to what your code can actually parallelize.
 
 **Memory usage near the limit?**
 You're at risk of OOM kills on future runs. Request more memory or reduce your problem size per node.
 
 **VRAM usage unexpectedly high?**
-Check for memory leaks or unfreed allocations across iterations. The time-series view in Grafana is especially useful here — look for a rising VRAM trend over the job's lifetime rather than a stable plateau.
+Check for memory leaks or unfreed allocations across iterations. The time-series view in Grafana is especially useful here. Look for a rising VRAM trend over the job's lifetime rather than a stable plateau.
 
 ---
 
