@@ -31,6 +31,7 @@ administrative-limitations
 monitoring
 building-software
 *
+demos/index
 ood/index
 sup/index
 adv/index

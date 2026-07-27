@@ -16,7 +16,9 @@ author = 'sighpc'
 extensions = [
     'myst_parser',
     'sphinx_copybutton',
-    'sphinx_new_tab_link'
+    'sphinx_new_tab_link',
+    'sphinx_design',
+    'sphinxcontrib.video',
 ]
 
 templates_path = ['_templates']

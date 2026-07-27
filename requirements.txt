@@ -4,3 +4,5 @@ shibuya
 Sphinx
 sphinx-copybutton
 sphinx-new-tab-link
+sphinx-design
+sphinxcontrib-video
