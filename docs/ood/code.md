@@ -5,7 +5,7 @@ This guide explains how to launch and use the **VS Code (code-server)** app thro
 
 ## Launching code-server
 
-1. Log in to muscadine’s [**Open OnDemand portal**](https://muscadine-node-1){target="_blank"}.
+1. Log in to muscadine’s [**Open OnDemand portal**](https://muscadine-ood.hpc.msstate.edu).
 2. Navigate to **Interactive Apps → VS Code**
 3. Fill in the requested parameters:
     - **Cluster**: choose the compute resource you want.
